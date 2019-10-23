@@ -23,13 +23,17 @@ SRCS = ft_atoi.c \
 		ft_isprint.c \
 		ft_toupper.c \
 		ft_tolower.c \
+		ft_memset.c \
+		ft_bzero.c \
+		ft_memcpy.c \
+		ft_memccpy.c \
 
 HEADER = libft.h
 
 OBJS = $(SRCS:.c=.o)
 
 $(NAME):
-		gcc $(FLAGS) -c $(SRCS) -I./ libft.h
+		gcc $(FLAGS) -c $(SRCS) -I./ $(HEADER)
 		ar rc $(NAME) $(OBJS)
 
 all: $(NAME)
