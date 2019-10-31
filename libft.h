@@ -43,5 +43,6 @@ void	ft_putnbr(int n);
 void    ft_putnbr_fd(int n, int fd);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 void	*ft_calloc(size_t nmemb, size_t size);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
