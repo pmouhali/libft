@@ -42,6 +42,7 @@ SRCS = ft_atoi.c \
 		ft_putnbr_fd.c \
 		ft_calloc.c \
 		ft_substr.c \
+		ft_strjoin.c \
 
 HEADER = libft.h
 
