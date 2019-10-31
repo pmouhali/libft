@@ -43,6 +43,8 @@ SRCS = ft_atoi.c \
 		ft_calloc.c \
 		ft_substr.c \
 		ft_strjoin.c \
+		ft_strtrim.c \
+		ft_index.c \
 
 HEADER = libft.h
 
@@ -57,10 +59,13 @@ all: $(NAME)
 clean:
 		rm $(OBJS)
 
+dellib:
+		rm $(NAME)
+
 fclean: clean
 		rm $(NAME)
 
-re: all clean
+re: fclean all
 
 so:
 	gcc $(FLAGS) -c $(SRCS) -I./ $(HEADER)

@@ -1,0 +1,12 @@
+# Ideas for additional functions
+
+
+## ft_index
+## ft_power
+## ft_base_n_to_x
+## ft_putstr_color
+## ft_strsub
+## 
+
+## linux working cp cmd :
+	gcc -Wall -Werror -Wextra -L. -I. libft.h main.c -lft
