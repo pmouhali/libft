@@ -48,6 +48,7 @@ SRCS = ft_atoi.c \
 		ft_split.c \
 		ft_free_str_array.c \
 		ft_putstr_array.c \
+		ft_strmapi.c \
 
 HEADER = libft.h
 
