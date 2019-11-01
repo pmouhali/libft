@@ -50,5 +50,6 @@ int		ft_index(char const *s, char c);
 char	**ft_split(char const *s, char c);
 void    ft_free_str_array(char **ar);
 void    ft_putstr_array(char **ar);
+char	*ft_itoa(int n);
 
 #endif
