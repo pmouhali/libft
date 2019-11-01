@@ -47,5 +47,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char    *ft_strtrim(char const *s1, char const *set);
 int		ft_index(char const *s, char c);
+char	**ft_split(char const *s, char c);
+void    ft_free_str_array(char **ar);
+void    ft_putstr_array(char **ar);
 
 #endif
