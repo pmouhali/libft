@@ -10,6 +10,7 @@
 ## ft_str_count_words
 ## ft_free_char_array
 ## ft_free_int_array
+## ft_strclen
 
 ## linux working cp cmd :
 	gcc -Wall -Werror -Wextra -L. -I. libft.h main.c -lft
