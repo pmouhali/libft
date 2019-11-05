@@ -1,5 +1,4 @@
-void    ft_putstr(const char *s);
-void    ft_putendl(char const *s);
+#include "libft.h"
 
 int		main(void)
 {

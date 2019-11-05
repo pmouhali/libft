@@ -14,3 +14,6 @@
 
 ## linux working cp cmd :
 	gcc -Wall -Werror -Wextra -L. -I. libft.h main.c -lft
+
+
+

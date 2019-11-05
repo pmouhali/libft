@@ -5,6 +5,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+typedef struct	s_list
+{
+	void			*content;
+	struct s_list 	*next;
+}				t_list;
+
 int		ft_atoi(const char *nptr);
 char    *ft_strcat(char *dest, const char *src);
 char    *ft_strncat(char *dest, const char *src, unsigned int nb);
@@ -52,5 +58,16 @@ void    ft_free_str_array(char **ar);
 void    ft_putstr_array(char **ar);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void	ft_putstr_color(char const *s, char const *color);
+
+# define ANSI_RESET_COLOR "\x1b[0m"
+# define ANSI_BLACK "\x1b[30m"
+# define ANSI_RED "\x1b[31m"
+# define ANSI_GREEN "\x1b[32m"
+# define ANSI_YELLOW "\x1b[33m"
+# define ANSI_BLUE "\x1b[34m"
+# define ANSI_MAGENTA "\x1b[35m"
+# define ANSI_CYAN "\x1b[36m"
+# define ANSI_WHITE "\x1b[37m"
 
 #endif
