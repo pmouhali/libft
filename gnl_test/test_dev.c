@@ -21,10 +21,8 @@ int	main(int ac, char **av)
 			ft_putendl_fd("ret = -1", 1);
 			return (0);
 		}
-/*
 		ft_putnbr_fd(ret, 1);
 		ft_putstr_fd("\n", 1);
-*/
 		if (!line)
 			ft_putendl_fd("line is null", 1);
 		else

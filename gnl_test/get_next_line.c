@@ -6,7 +6,7 @@
 /*   By: pmouhali <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 10:40:24 by pmouhali          #+#    #+#             */
-/*   Updated: 2019/11/08 19:20:18 by pmouhali         ###   ########.fr       */
+/*   Updated: 2019/11/08 19:30:43 by pmouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ int	get_next_line(int fd, char **line)
 			return (1);
 		}
 	}
-	return (-1);
+	ret = ret == 0 ? 0 : -1;
+	return (ret);
 }
 
 // How to make read start where he'd stop ? automatic, do not reopen the file
