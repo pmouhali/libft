@@ -6,7 +6,7 @@
 /*   By: pmouhali <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 10:40:24 by pmouhali          #+#    #+#             */
-/*   Updated: 2019/11/08 14:46:10 by pmouhali         ###   ########.fr       */
+/*   Updated: 2019/11/08 19:20:18 by pmouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,45 @@
 int	get_next_line(int fd, char **line)
 {
 	static char	buf[BUFFER_SIZE + 1];
+	char *tmp;
 	int ret;
 	int i;
-
-	*line = ft_strndup(buf, -1);
+/*
+	ft_putendl_fd("=== static buf content at func open ===", 1);
+	ft_putstr_fd(buf, 1);
+	ft_putendl_fd("==================================", 1);
+*/
+	i = ft_index(buf, '\n');
+	*line = ft_strnjoin("", buf, i);
+/*	
+	ft_putendl_fd("=== line content at func open ===", 1);
+	ft_putstr_fd(*line, 1);
+	ft_putendl_fd("==========================", 1);
+*/
+	ft_memmove(buf, &buf[i + 1], BUFFER_SIZE);
+	if (i != - 1)
+		return (1);
 	while ((ret = read(fd, buf, BUFFER_SIZE)))
 	{
-		buf[BUFFER_SIZE] = '\0';			
-		if ((i = ft_index(buf, '\n')) != -1) // if there is a \n in what have been just read
+		buf[BUFFER_SIZE] = '\0';
+/*
+		ft_putendl_fd("=== static buf content ===", 1);
+		ft_putstr_fd(buf, 1);
+		ft_putendl_fd("==========================", 1);
+*/
+		i = ft_index(buf, '\n');
+		tmp = *line;
+		*line = ft_strnjoin(*line, buf, i);
+/*	
+		ft_putendl_fd("=== line content ===", 1);
+		ft_putstr_fd(*line, 1);
+		ft_putendl_fd("==========================", 1);
+*/
+		free(tmp);
+		if (i != -1)
 		{
-			*line = ft_strndup(buf, i);
 			ft_memmove(buf, &buf[i + 1], BUFFER_SIZE);
-			/* REMOVE */	
-			ft_putendl_fd("=== static buf content ===", 1);
-			ft_putendl_fd(buf, 1);
-			ft_putendl_fd("==========================", 1);
-			/* REMOVE */	
 			return (1);
-		}
-		else
-		{
-			
 		}
 	}
 	return (-1);
@@ -49,3 +67,8 @@ int	get_next_line(int fd, char **line)
 // Careful : Buffsize - 1 does not work if buffsize == 1
 // Careful : CRTL-D for stdin
 // Multiple fd : double tab
+/*
+			ft_putendl_fd("=== static buf content ===", 1);
+			ft_putendl_fd(buf, 1);
+			ft_putendl_fd("==========================", 1);
+*/
