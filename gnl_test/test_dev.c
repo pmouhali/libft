@@ -4,18 +4,20 @@
 
 int	main(int ac, char **av)
 {
-	if (ac == 1) { ft_putendl_fd("no input given", 1); return (0); }
+//	if (ac == 1) { ft_putendl_fd("no input given", 1); return (0); }
 	
 	char *line;
 	int ret;
-	int fd;
+//	int fd;
 
-	if ((fd = open(av[1], O_RDONLY)) == -1) { ft_putendl_fd("open failed", 1); return (0); }
+(void)ac;
+(void)av;
+//	if ((fd = open(av[1], O_RDONLY)) == -1) { ft_putendl_fd("open failed", 1); return (0); }
 	
 	ret = 1;
 	while (ret)
 	{
-		ret = get_next_line(fd, &line);
+		ret = get_next_line(-1, &line);
 		if (ret == -1)
 		{
 			ft_putendl_fd("ret = -1", 1);
@@ -32,5 +34,5 @@ int	main(int ac, char **av)
 		}
 	}
 
-	close(fd);
+//	close(fd);
 }
