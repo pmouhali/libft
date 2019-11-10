@@ -6,7 +6,7 @@
 /*   By: pmouhali <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 15:21:58 by pmouhali          #+#    #+#             */
-/*   Updated: 2019/11/08 16:31:50 by pmouhali         ###   ########.fr       */
+/*   Updated: 2019/11/09 17:25:17 by pmouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,29 +67,19 @@ int	ft_index(char const *s, char c)
 	while (s[++i])
 		if (s[i] == c)
 			return (i);
+//	if (s[i] == 0 && c == 0)
+//		return (i);
 	return (-1);
 }
 
-char	*ft_strndup(const char *s, long n)
+unsigned long	ft_strlen(const char *s)
 {
-	long	i;
-	char	*new;
+	unsigned long i;
 
 	i = 0;
-	if (n != -1)
-		while (s[i] && i < n)
-			i++;
-	else
-		while (s[i])
-			i++;
-	if ((new = (char*)malloc(sizeof(char) * (i + 1))) == NULL)
-		return (NULL);
-	n = i;
-	i = -1;
-	while (++i < n)
-		new[i] = s[i];
-	new[i] = '\0';
-	return (new);
+	while (s[i])
+		i++;
+	return (i);
 }
 
 void	*ft_memmove(void *dest, const void *src, unsigned long n)
@@ -98,7 +88,7 @@ void	*ft_memmove(void *dest, const void *src, unsigned long n)
 	unsigned char		*cdest;
 	const unsigned char	*csrc;
 
-	if (!dest && !src)
+	if ((!dest && !src) || dest == src)
 		return (dest);
 	cdest = dest;
 	csrc = src;
@@ -124,17 +114,15 @@ char	*ft_strnjoin(char const *s1, char const *s2, long n)
 	unsigned long i;
 	long j;
 
-	i = 0;
-	j = 0;
-	while (s1[i])
-		i++;
-	if (n != -1)
-		while (s2[j] && j < n)
-			j++;
+	if (n == -1)
+		j = ft_strlen(s2);
 	else
-		while (s2[j])
+	{
+		j = 0;
+		while (j < n && s2[j])
 			j++;
-	if ((new = (char*)malloc(sizeof(char) * (i + j + 1))) == NULL)
+	}
+	if (!(new = (char*)malloc(sizeof(char) * (ft_strlen(s1) + j + 1))))
 		return (NULL);
 	i = -1;
 	while (s1[++i] != '\0')
