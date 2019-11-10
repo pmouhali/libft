@@ -5,6 +5,20 @@ int		main(void)
 	char *expected;
 	char *got;
 
+ft_putstr_fd("   test 1076452501 : ", 1);
+	expected = "1076452501";
+	got = ft_itoa(1076452501);
+	if (ft_strncmp(got, expected, 11))
+	{
+		ft_putstr_fd("KO : got : ", 1);
+		ft_putstr_fd(got, 1);
+		ft_putstr_fd(" expected : ", 1);
+		ft_putendl_fd(expected, 1);
+	}
+	else
+		ft_putendl_fd("OK", 1);
+	free(got);
+/*
 ft_putstr("   test zéro : ");
 	expected = "0";
 	got = ft_itoa(0);
@@ -130,4 +144,5 @@ ft_putstr("  test -8887 : ");
 	else
 		ft_putendl("OK");
 	free(got);
+*/
 }

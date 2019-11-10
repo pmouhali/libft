@@ -4,6 +4,12 @@ int		main(void)
 {
 	char *s;
 
+ft_putendl_fd("If the specified index is greater than the string length and size is  ok", 1);
+	s = ft_substr("abcdefghijklmnop", 400, 10);
+	ft_putendl_fd("empty string ?", 1);
+	ft_putendl_fd(s, 1);
+	free(s);
+/*
 ft_putendl("If the string is longer than specified substring length and correct index");
 	s = ft_substr("abcdefghijklmnop", 3, 10);
 	ft_putendl("defghijklm");
@@ -34,6 +40,7 @@ ft_putendl("If the substring length is zero, string and index correct");
 	ft_putendl("");
 	ft_putendl(s);
 	free(s);
+*/
 }
 
 /* Be careful : do not allocate total lenght is str is too short ! */

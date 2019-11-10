@@ -17,15 +17,29 @@ void	printab(int *tab, int n)
 int		main(void)
 {
 	char s1[] = "string";
-	int tab[] = {20, 30, 40, 45};
+	char s2[] = "jambon";
+
+	printf("o %s\n", (char*)memchr(s2, '*', 7));
+	printf("f %s\n", (char*)ft_memchr(s2, '*', 7));
 
 	printf("o %s\n", (char*)memchr(s1, 'r', 7));
-	printf("o %s\n", (char*)memchr(s1, 'h', 7));
-	printf("o %s\n", (char*)memchr(tab, 45, 40));
-	printf("o %s\n", (char*)memchr(tab, 44, 40));
-
 	printf("f %s\n", (char*)ft_memchr(s1, 'r', 7));
+	
+	printf("o %s\n", (char*)memchr(s1, 'h', 7));
 	printf("f %s\n", (char*)ft_memchr(s1, 'h', 7));
-	printf("f %s\n", (char*)ft_memchr(tab, 45, 40));
-	printf("f %s\n", (char*)ft_memchr(tab, 44, 40));
+	
+	printf("o %s\n", (char*)memchr(s1, 'h', 600));
+	printf("f %s\n", (char*)ft_memchr(s1, 'h', 600));
+
+	printf("o %s\n", (char*)memchr(s1, 'h', -1));
+	printf("f %s\n", (char*)ft_memchr(s1, 'h', -1));
+
+	printf("o %s\n", (char*)memchr(s1, 0, 6));
+	printf("f %s\n", (char*)ft_memchr(s1, 0, 6));
+	
+	printf("o %s\n", (char*)memchr(s1, 0, 7));
+	printf("f %s\n", (char*)ft_memchr(s1, 0, 7));
+	
+	printf("o %s\n", (char*)memchr(s1, 0, 8));
+	printf("f %s\n", (char*)ft_memchr(s1, 0, 8));
 }
