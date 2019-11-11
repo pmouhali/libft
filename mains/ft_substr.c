@@ -1,15 +1,26 @@
 #include "libft.h"
 
+void	ft_putendl(char *s)
+{
+	write(1, s, ft_strlen(s));
+	write(1, "\n", 1);
+}
+
 int		main(void)
 {
 	char *s;
 
-ft_putendl_fd("If the specified index is greater than the string length and size is  ok", 1);
-	s = ft_substr("abcdefghijklmnop", 400, 10);
-	ft_putendl_fd("empty string ?", 1);
+ft_putendl_fd("s = jambon, start = -10, len = 5", 1);
+	s = ft_substr("jambon", -10, 5);
+	ft_putendl_fd("", 1);
 	ft_putendl_fd(s, 1);
 	free(s);
 /*
+ft_putendl_fd("If the specified index is greater than the string length and size is  ok", 1);
+	s = ft_substr("abcdefghijklmnop", 400, 10);
+	ft_putendl_fd("", 1);
+	ft_putendl_fd(s, 1);
+	free(s);
 ft_putendl("If the string is longer than specified substring length and correct index");
 	s = ft_substr("abcdefghijklmnop", 3, 10);
 	ft_putendl("defghijklm");

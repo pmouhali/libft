@@ -1,31 +1,51 @@
 #include "libft.h"
+#include <string.h> 
 
 int		main(void)
 {
 	char *s;
 
-	ft_putendl("With two random strings :");
-	ft_putendl("bad motherfucker :)");
-	s = ft_strjoin("bad mother", "fucker :)");
-	ft_putendl(s);
+	ft_putendl_fd("With two random strings : ", 1);
+	s = ft_strjoin("Now is the winter", "of our disontent");
+	if (strcmp(s, "Now is the winterof our disontent"))
+	{
+		ft_putstr_fd("Expected : Now is the winterof our disontent Got : ", 1);
+		ft_putendl_fd(s, 1);
+	}
+	else
+		ft_putendl_fd("OK", 1);
 	free(s);
 	
-	ft_putendl("With the first string empty :");
-	ft_putendl("fucker :)");
-	s = ft_strjoin("", "fucker :)");
-	ft_putendl(s);
+	ft_putendl_fd("With the first string empty : ", 1);
+	s = ft_strjoin("", "Made glorious");
+	if (strcmp(s, "Made glorious"))
+	{
+		ft_putstr_fd("Expected : Made glorious Got : ", 1);
+		ft_putendl_fd(s, 1);
+	}
+	else
+		ft_putendl_fd("OK", 1);
 	free(s);
 	
-	ft_putendl("With the second string empty :");
-	ft_putendl("bad mother");
-	s = ft_strjoin("bad mother", "");
-	ft_putendl(s);
+	ft_putendl_fd("With the second string empty :", 1);
+	s = ft_strjoin("summer by this Sun of York;", "");
+	if (strcmp(s, "summer by this Sun of York;"))
+	{
+		ft_putstr_fd("Expected : summer by this Sun of York; Got : ", 1);
+		ft_putendl_fd(s, 1);
+	}
+	else
+		ft_putendl_fd("OK", 1);
 	free(s);
 
-/* Is the return value supposed to be NULL or a unique value pointer ? */
-	ft_putendl("With the two strings empty :");
-	ft_putendl("");
+	ft_putendl_fd("With the two strings empty :", 1);
 	s = ft_strjoin("", "");
-	ft_putendl(s);
+	if (strcmp(s, ""))
+	{
+		ft_putstr_fd("Expected : Got : ", 1);
+		ft_putendl_fd(s, 1);
+	}
+	else
+		ft_putendl_fd("OK", 1);
 	free(s);
 }
