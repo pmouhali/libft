@@ -37,10 +37,12 @@ void	ft_putstr_array(char **a)
 int		main(void)
 {
 	char **got;
+	char *e;
 
 ft_putstr_fd("With delimiters at the start, middle and end : ", 1);
 	char **exp1 = (char*[6]){"Now", "is", "the", "winter", "of", NULL};
-	got = ft_split(" Now is the  winter   of ", ' ');
+	e = ft_strdup(" Now is the  winter   of ");
+	got = ft_split(e, ' ');
 	if (split_cmp_array(exp1, got))
 	{
 		ft_putendl_fd("KO", 1);
@@ -50,11 +52,13 @@ ft_putstr_fd("With delimiters at the start, middle and end : ", 1);
 	}
 	else
 		ft_putendl_fd("OK", 1);
+	free(e);
 	ft_free_str_array(got);
 
 ft_putstr_fd("           With delimiters at the start only : ", 1);
 	char **exp2 = (char*[2]){"our", NULL};
-	got = ft_split("        our", ' ');
+	e = ft_strdup("        our");
+	got = ft_split(e, ' ');
 	if (split_cmp_array(exp2, got))
 	{
 		ft_putendl_fd("KO", 1);
@@ -64,11 +68,13 @@ ft_putstr_fd("           With delimiters at the start only : ", 1);
 	}
 	else
 		ft_putendl_fd("OK", 1);
+	free(e);
 	ft_free_str_array(got);
 
 ft_putstr_fd("          With delimiters in the middle only : ", 1);
 	char **exp3 = (char*[5]){"discontent,", "made", "glorious", "summer", NULL};
-	got = ft_split("discontent, made glorious summer", ' ');
+	e = ft_strdup("discontent, made glorious summer");
+	got = ft_split(e, ' ');
 	if (split_cmp_array(exp3, got))
 	{
 		ft_putendl_fd("KO", 1);
@@ -78,11 +84,13 @@ ft_putstr_fd("          With delimiters in the middle only : ", 1);
 	}
 	else
 		ft_putendl_fd("OK", 1);
+	free(e);
 	ft_free_str_array(got);
 
 ft_putstr_fd("             With delimiters at the end only : ", 1);
 	char **exp4 = (char*[2]){"by", NULL};
-	got = ft_split("by       ", ' ');
+	e = ft_strdup("by       ");
+	got = ft_split(e, ' ');
 	if (split_cmp_array(exp4, got))
 	{
 		ft_putendl_fd("KO", 1);
@@ -92,11 +100,13 @@ ft_putstr_fd("             With delimiters at the end only : ", 1);
 	}
 	else
 		ft_putendl_fd("OK", 1);
+	free(e);
 	ft_free_str_array(got);
 
 ft_putstr_fd("                        With delimiters only : ", 1);
 	char **exp5 = (char*[1]){NULL};
-	got = ft_split("        ", ' ');
+	e = ft_strdup("        ");
+	got = ft_split(e, ' ');
 	if (split_cmp_array(exp5, got))
 	{
 		ft_putendl_fd("KO", 1);
@@ -106,11 +116,13 @@ ft_putstr_fd("                        With delimiters only : ", 1);
 	}
 	else
 		ft_putendl_fd("OK", 1);
+	free(e);
 	ft_free_str_array(got);
 
 ft_putstr_fd("                           With empty string : ", 1);
 	char **exp6 = (char*[1]){NULL};
-	got = ft_split("", ' ');
+	e = ft_strdup("");
+	got = ft_split(e, ' ');
 	if (split_cmp_array(exp6, got))
 	{
 		ft_putendl_fd("KO", 1);
@@ -120,11 +132,13 @@ ft_putstr_fd("                           With empty string : ", 1);
 	}
 	else
 		ft_putendl_fd("OK", 1);
+	free(e);
 	ft_free_str_array(got);
 
 ft_putstr_fd("            With no delimiters in the string : ", 1);
 	char **exp7 = (char*[2]){"by this sun", NULL};
-	got = ft_split("by this sun", 0);
+	e = ft_strdup("by this sun");
+	got = ft_split(e, 0);
 	if (split_cmp_array(exp7, got))
 	{
 		ft_putendl_fd("KO", 1);
@@ -134,6 +148,7 @@ ft_putstr_fd("            With no delimiters in the string : ", 1);
 	}
 	else
 		ft_putendl_fd("OK", 1);
+	free(e);
 	ft_free_str_array(got);
 }
 
