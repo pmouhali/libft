@@ -6,7 +6,7 @@
 /*   By: pmouhali <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 15:12:40 by pmouhali          #+#    #+#             */
-/*   Updated: 2019/11/11 13:58:29 by pmouhali         ###   ########.fr       */
+/*   Updated: 2019/11/12 12:31:44 by pmouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	while (start >= 0 && start < strlen && i < len && s[i + start] != '\0')
 		i++;
-	ft_putstr_fd("malloc : ", 1);
-	ft_putnbr_fd(i + 1, 1);
-	ft_putstr_fd("", 1);
 	if ((substr = (char*)malloc(sizeof(char) * (i + 1))) == NULL)
 		return (NULL);
 	i = 0;

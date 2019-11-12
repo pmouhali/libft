@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmouhali <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/01 12:45:36 by pmouhali          #+#    #+#             */
-/*   Updated: 2019/09/01 12:54:54 by pmouhali         ###   ########.fr       */
+/*   Created: 2019/11/05 13:13:10 by pmouhali          #+#    #+#             */
+/*   Updated: 2019/11/05 14:12:12 by pmouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcat(char *dest, const char *src)
-{
-	int i;
-	int j;
+#include "libft.h"
 
-	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
-		i++;
-	while (src[j] != '\0')
-	{
-		dest[i] = src[j];
-		j++;
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+void	ft_lstadd_back(t_list **alst, t_list *new)
+{
+	if (*alst)
+		(ft_lstlast(*alst))->next = new;
+	else
+		*alst = new;
 }

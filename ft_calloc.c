@@ -1,10 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pmouhali <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/05 17:42:28 by pmouhali          #+#    #+#             */
+/*   Updated: 2019/11/05 18:16:48 by pmouhali         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void *b;
-	unsigned char *c;
-	size_t i;
+	void	*b;
 
 	if (nmemb == 0 || size == 0)
 	{
@@ -13,18 +23,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	}
 	if ((b = malloc(nmemb * size)) == NULL)
 		return (NULL);
-	i = 0;
-	c = b;
-	while (i < nmemb * size)
-	{
-		c[i] = 0;
-		i++;
-	}
+	ft_bzero(b, nmemb * size);
 	return (b);
 }
-
-/*
-**	if malloc returns NULL, return NULL.
-**	if nmemb or size is zero, return a pointer to a unique element set to zero
-**	else allocate with malloc, set each element to zero and return the pointer
-*/

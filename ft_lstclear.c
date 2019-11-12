@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmouhali <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/01 13:02:23 by pmouhali          #+#    #+#             */
-/*   Updated: 2019/09/01 19:44:45 by pmouhali         ###   ########.fr       */
+/*   Created: 2019/11/05 16:31:31 by pmouhali          #+#    #+#             */
+/*   Updated: 2019/11/05 16:47:53 by pmouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *dest, const char *src, unsigned int nb)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	unsigned int i;
-	unsigned int j;
+	t_list *p;
 
-	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
-		i++;
-	while (j < nb && src[j] != '\0')
+	while (*lst)
 	{
-		dest[i] = src[j];
-		j++;
-		i++;
+		p = *lst;
+		*lst = (*lst)->next;
+		if (del)
+			del(p->content);
+		free(p);
 	}
-	dest[i] = '\0';
-	return (dest);
+	*lst = NULL;
 }

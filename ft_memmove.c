@@ -1,31 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pmouhali <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/04 14:53:34 by pmouhali          #+#    #+#             */
+/*   Updated: 2019/11/04 17:38:46 by pmouhali         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-/*
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t i;
-	unsigned char *temp;
-	const unsigned char *csrc;
-	unsigned char *cdest;
+	size_t				i;
+	unsigned char		*cdest;
+	const unsigned char	*csrc;
 
-	if ((temp = (unsigned char*)malloc(sizeof(unsigned char) * n)) == NULL)
+	if (!dest && !src)
 		return (dest);
-	csrc = src;
-	i = -1;
-	while (++i < n)
-		temp[i] = csrc[i];
 	cdest = dest;
-	i = -1;
-	while (++i < n)
-		cdest[i] = temp[i];
+	csrc = src;
+	i = 0;
+	if (dest <= src)
+		while (i < n)
+		{
+			cdest[i] = csrc[i];
+			i++;
+		}
+	else
+		while (n > 0)
+		{
+			cdest[n - 1] = csrc[n - 1];
+			n--;
+		}
 	return (dest);
-}
-*/
-
-void	*ft_memmove(void *dest, const void *src, size_t n)
-{
-	size_t i;
-	const unsigned char *csrc;
-	unsigned char *cdest;
-
 }

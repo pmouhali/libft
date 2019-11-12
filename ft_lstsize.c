@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmouhali <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/01 12:05:46 by pmouhali          #+#    #+#             */
-/*   Updated: 2019/09/01 12:12:58 by pmouhali         ###   ########.fr       */
+/*   Created: 2019/11/05 13:25:32 by pmouhali          #+#    #+#             */
+/*   Updated: 2019/11/05 13:28:05 by pmouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(const char *s1, const char *s2)
+#include "libft.h"
+
+int	ft_lstsize(t_list *lst)
 {
 	int i;
 
 	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && s1[i] != '\0')
+	while (lst)
+	{
+		lst = lst->next;
 		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	}
+	return (i);
 }

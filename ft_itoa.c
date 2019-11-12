@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pmouhali <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/04 14:24:15 by pmouhali          #+#    #+#             */
+/*   Updated: 2019/11/11 15:25:16 by pmouhali         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	ft_itoa_chrcnt(int n)
 {
 	int a;
-	
+
 	if (n == 0)
 		return (1);
 	a = n < 0 ? 1 : 0;
@@ -17,9 +29,9 @@ static int	ft_itoa_chrcnt(int n)
 
 char		*ft_itoa(int n)
 {
-	char *toa;
-	int i;
-	int m;
+	char*toa;
+	int	i;
+	int	m;
 
 	i = ft_itoa_chrcnt(n);
 	m = 1;
@@ -40,4 +52,3 @@ char		*ft_itoa(int n)
 	}
 	return (toa);
 }
-

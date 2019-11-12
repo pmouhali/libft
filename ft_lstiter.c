@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmouhali <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 14:56:12 by pmouhali          #+#    #+#             */
-/*   Updated: 2019/11/09 16:23:25 by pmouhali         ###   ########.fr       */
+/*   Created: 2019/11/05 16:49:38 by pmouhali          #+#    #+#             */
+/*   Updated: 2019/11/05 16:52:00 by pmouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(const char *s, int fd)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	int i;
-
-	if (!s)
-		return ;
-	i = 0;
-	while (s[i])
-		i++;
-	write(fd, s, i);
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }
