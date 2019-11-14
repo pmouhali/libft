@@ -39,6 +39,22 @@ int		main(void)
 	char **got;
 	char *e;
 
+ft_putstr_fd("            With backslash zero as delimiter : ", 1);
+	char **exp10 = (char*[1]){NULL};
+	e = ft_strdup("");
+	got = ft_split(e, '\0');
+	if (split_cmp_array(exp10, got))
+	{
+		ft_putendl_fd("KO", 1);
+		ft_putstr_array(got);
+		ft_putendl_fd("instead of expected :", 1);
+		ft_putstr_array(exp10);
+	}
+	else
+		ft_putendl_fd("OK", 1);
+	free(e);
+	ft_free_str_array(got);
+
 ft_putstr_fd("With delimiters at the start, middle and end : ", 1);
 	char **exp1 = (char*[6]){"Now", "is", "the", "winter", "of", NULL};
 	e = ft_strdup(" Now is the  winter   of ");
@@ -49,6 +65,38 @@ ft_putstr_fd("With delimiters at the start, middle and end : ", 1);
 		ft_putstr_array(got);
 		ft_putendl_fd("instead of expected :", 1);
 		ft_putstr_array(exp1);
+	}
+	else
+		ft_putendl_fd("OK", 1);
+	free(e);
+	ft_free_str_array(got);
+
+ft_putstr_fd("With delimiters at the start, middle and end : ", 1);
+	char **expc2 = (char*[3]){"N", "o", NULL};
+	e = ft_strdup(" N o");
+	got = ft_split(e, ' ');
+	if (split_cmp_array(expc2, got))
+	{
+		ft_putendl_fd("KO", 1);
+		ft_putstr_array(got);
+		ft_putendl_fd("instead of expected :", 1);
+		ft_putstr_array(expc2);
+	}
+	else
+		ft_putendl_fd("OK", 1);
+	free(e);
+	ft_free_str_array(got);
+
+ft_putstr_fd("With delimiters at the start, middle and end : ", 1);
+	char **expc1 = (char*[2]){"a", NULL};
+	e = ft_strdup("a");
+	got = ft_split(e, ' ');
+	if (split_cmp_array(expc1, got))
+	{
+		ft_putendl_fd("KO", 1);
+		ft_putstr_array(got);
+		ft_putendl_fd("instead of expected :", 1);
+		ft_putstr_array(expc1);
 	}
 	else
 		ft_putendl_fd("OK", 1);

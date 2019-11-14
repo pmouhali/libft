@@ -6,83 +6,57 @@
 /*   By: pmouhali <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 14:56:46 by pmouhali          #+#    #+#             */
-/*   Updated: 2019/11/11 16:05:13 by pmouhali         ###   ########.fr       */
+/*   Updated: 2019/11/13 16:59:43 by pmouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_count_words(char const *str, char c)
+static int	splits(const char *s, char c)
 {
 	int i;
 	int j;
 
 	i = 0;
 	j = 0;
-	while (*str == c)
-		str++;
-	while (str[i])
+	while (s[i] != '\0')
 	{
-		if (str[i] != c && i > 0 && str[i - 1] == c)
+		while (s[i] != '\0' && s[i] == c)
+			i++;
+		if (s[i] && s[i] != c)
+		{
+			while (s[i] != '\0' && s[i] != c)
+				i++;
 			j++;
-		i++;
+		}
 	}
-	if (i == 0)
-		return (0);
-	return (j + 1);
+	return (j);
 }
 
-static int		ft_ccnt(char const *str, int index, char c)
+char		**ft_split(char const *s, char c)
 {
-	int i;
-
-	i = 0;
-	while (str[index] && str[index] != c)
-	{
-		i++;
-		index++;
-	}
-	return (i);
-}
-
-static int		ft_sstrcpy(char *dest, char const *src, int index, char c)
-{
-	int i;
-
-	i = 0;
-	while (src[index] && src[index] != c)
-	{
-		dest[i] = src[index];
-		index++;
-		i++;
-	}
-	dest[i] = '\0';
-	return (index);
-}
-
-char			**ft_split(char const *s, char c)
-{
-	char	**tab;
+	char	**t;
+	int		end;
 	int		i;
-	int		j;
-	int		tabsize;
+	int		start;
 
+	start = 0;
+	i = 0;
+	end = 0;
 	if (!s)
 		return (NULL);
-	tabsize = ft_count_words(s, c);
-	i = 0;
-	j = 0;
-	if (!(tab = (char**)malloc(sizeof(char*) * (tabsize + 1))))
-		return (tab);
-	while (i < tabsize)
+	if (!(t = (char**)malloc(sizeof(char*) * (splits(s, c) + 1))))
+		return (NULL);
+	while (s[end])
 	{
-		while (s[j] == c && s[j] != '\0')
-			j++;
-		if (!(tab[i] = (char*)malloc(sizeof(char) * (ft_ccnt(s, j, c) + 1))))
-			return (NULL);
-		j = ft_sstrcpy(tab[i], s, j, c);
-		i++;
+		while (s[end] != '\0' && s[end] == c)
+			end++;
+		start = end;
+		while (s[end] != '\0' && s[end] != c)
+			end++;
+		if (s[end] == c || (s[end] == '\0' && s[end - 1] != c))
+			t[i++] = ft_substr(s, start, (end - start));
 	}
-	tab[i] = NULL;
-	return (tab);
+	t[i] = NULL;
+	return (t);
 }

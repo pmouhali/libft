@@ -15,7 +15,18 @@ int		main(void)
 	else
 		ft_putendl_fd("OK", 1);
 	free(s);
-	
+
+	ft_putendl_fd("With two random strings of 1 char : ", 1);
+	s = ft_strjoin("N", "o");
+	if (strcmp(s, "No"))
+	{
+		ft_putstr_fd("Expected : No Got : ", 1);
+		ft_putendl_fd(s, 1);
+	}
+	else
+		ft_putendl_fd("OK", 1);
+	free(s);
+
 	ft_putendl_fd("With the first string empty : ", 1);
 	s = ft_strjoin("", "Made glorious");
 	if (strcmp(s, "Made glorious"))

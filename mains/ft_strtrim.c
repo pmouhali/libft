@@ -9,6 +9,21 @@ int		main(void)
 	char *s;
 	char *e;
 	char *set;
+	
+	set = ft_strdup("");
+ft_putstr("          with backslash zero as set included character : ");
+	e = ft_strdup("LOL");
+	s = ft_strtrim(e, set);
+	if (strcmp(s, "LOL"))
+	{
+		ft_putstr("KO : ");
+		ft_putendl(s);
+	}
+	else
+		ft_putendl("OK");
+	free(s);
+	free(e);
+	free(set);
 
 	set = ft_strdup(" x6");
 
