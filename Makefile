@@ -2,14 +2,14 @@ NAME = libft.a
 
 FLAGS = -Wall -Wextra -Werror
 
-SRCS = 		ft_memset.c \
+SRCS = 	ft_memset.c \
 		ft_bzero.c \
 		ft_memcpy.c \
 		ft_memccpy.c \
 		ft_memmove.c \
 		ft_memchr.c \
 		ft_memcmp.c \
-		ft_strlen.c \
+		ft_strlen.c ft_index.c ft_indexr.c \
 		ft_isalpha.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
@@ -17,9 +17,8 @@ SRCS = 		ft_memset.c \
 		ft_isprint.c \
 		ft_toupper.c \
 		ft_tolower.c \
-		ft_strchr.c \
-		ft_strrchr.c \
-		ft_strncmp.c \
+		ft_strchr.c ft_strrchr.c \
+		ft_strcmp.c ft_strncmp.c \
 		ft_strlcpy.c \
 		ft_strlcat.c \
 		ft_strnstr.c \
@@ -32,38 +31,29 @@ SRCS = 		ft_memset.c \
 		ft_split.c \
 		ft_itoa.c \
 		ft_strmapi.c \
-		ft_putchar_fd.c \
-		ft_putstr_fd.c \
-		ft_putendl_fd.c \
-		ft_putnbr_fd.c \
-
-
-BONUSES = 	ft_lstnew.c \
-		ft_lstadd_front.c \
-		ft_lstadd_back.c \
+		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+		ft_lstnew.c \
+		ft_lstadd_front.c ft_lstadd_back.c \
 		ft_lstsize.c \
 		ft_lstlast.c \
 		ft_lstdelone.c \
 		ft_lstclear.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
+		ft_tablen.c ft_tabfree.c ft_tabdup.c ft_tabpush.c ft_tabindex.c \
+		ft_tabdelete.c ft_tabdeletem.c \
+
 
 HEADER = libft.h
 
 OBJS = $(SRCS:.c=.o)
-OBJSBONUSES = $(BONUSES:.c=.o)
 
 $(NAME):
-		gcc $(FLAGS) -c $(SRCS) -I./ $(HEADER)
+		gcc $(FLAGS) -c srcs/*.c -I./ $(HEADER)
 		ar rc $(NAME) $(OBJS)
 		ranlib $(NAME)
 
 all: $(NAME)
-
-bonus: 
-		gcc $(FLAGS) -c $(SRCS) $(BONUSES) -I./ $(HEADER)
-		ar rc $(NAME) $(OBJS) $(OBJSBONUSES)
-		ranlib $(NAME)
 
 clean:
 		rm -f $(OBJS) $(OBJSBONUSES)
@@ -76,4 +66,3 @@ re: fclean all
 
 norme:
 	norminette $(SRCS) $(BONUSES) $(HEADER)
-

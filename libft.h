@@ -17,6 +17,9 @@
 # include <stdlib.h>
 # include <string.h>
 
+# define true  1
+# define false 0
+
 typedef struct	s_list
 {
 	void			*content;
@@ -40,6 +43,7 @@ int				ft_toupper(int c);
 int				ft_tolower(int c);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
+int				ft_strcmp(const char *s1, const char *s2);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
@@ -67,5 +71,14 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 void (*del)(void *));
+int				ft_index(const char *s, int c);
+int				ft_indexr(const char *s, int c);
+void			ft_tabfree(void **tab);
+int				ft_tablen(const void **tab);
+void			**ft_tabdup(const void *tab[], void *(*dup)(const void *));
+void			**ft_tabpush(void *tab[], const void *elem, int index, void *(*dup)(const void *));
+int				ft_tabindex(const void *tab[], const void *e, int (*cmp)(const void *, const void *));
+void			**ft_tabdelete(void *tab[], const void *e, int (*cmp)(const void *, const void *), void *(*dup)(const void*));
+void			**ft_tabdeletem(void *tab[], const void *e, int (*cmp)(const void *, const void*));
 
 #endif
